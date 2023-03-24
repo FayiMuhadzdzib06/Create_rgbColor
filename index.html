@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Create RGB Color</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: rgb(34, 34, 34);
+        }
+        li{
+            list-style: none;
+        }
+        .container {
+            width: 300px;
+            height: 420px;
+            background-color: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            margin: 100px auto;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .container .cthWarna{
+            width: calc(100% - 30px);
+            height: 200px;
+            background-color: #e4e4e4;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+        .container ul {
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+        .container ul li{
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            color: #e4e4e4;
+        }
+        .container ul li:nth-child(1) input{
+            width: 205px;
+            margin-left: 35px;
+        }
+        .container ul li:nth-child(2) input{
+            width: 205px;
+            margin-left: 15px;
+        }
+        .container ul li:nth-child(3) input{
+            width: 205px;
+            margin-left: 30px;
+        }
+
+        .container .hasil{
+            width: calc(100% - 30px);
+            height: 60px;
+            background-color: rgba(205, 205, 205, .05);
+            margin: auto;
+            border: 2px solid rgba(255, 255, 255, .1);
+            color: #e4e4e4;
+            border-radius: 5px;
+            display: grid;
+            place-items: center;
+        }
+
+        @media screen and (max-width: 560px) {
+            .container {
+                margin: 70px auto;
+                transform: scale(.9);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="cthWarna"></div>
+        <ul>
+            <li>Red <input type="range" name="merah" min="0" max="255" value="0"></li>
+            <li>Green <input type="range" name="hijau" min="0" max="255" value="0"></li>
+            <li>Blue <input type="range" name="biru" min="0" max="255" value="0"></li>
+        </ul>
+        <div class="hasil">RGB(0, 0, 0)</div>
+    </div>
+
+    <script>
+        const layar = document.querySelector('.cthWarna');
+        const red = document.querySelector('input[name = merah]');
+        const green = document.querySelector('input[name = hijau]');
+        const blue = document.querySelector('input[name = biru]');
+        const hasil = document.querySelector('.hasil');
+        
+        red.addEventListener('change', function(){
+            layar.style.backgroundColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
+            hasil.innerHTML = `RGB(${red.value}, ${green.value}, ${blue.value})`;
+        });
+        green.addEventListener('change', function(){
+            layar.style.backgroundColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
+            hasil.innerHTML = `RGB(${red.value}, ${green.value}, ${blue.value})`;
+        });
+        blue.addEventListener('change', function(){
+            layar.style.backgroundColor = `rgb(${red.value}, ${green.value}, ${blue.value})`;
+            hasil.innerHTML = `RGB(${red.value}, ${green.value}, ${blue.value})`;
+        });
+    </script>
+</body>
+
+</html>
